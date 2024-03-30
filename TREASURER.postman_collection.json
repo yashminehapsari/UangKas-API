@@ -1,0 +1,989 @@
+{
+	"info": {
+		"_postman_id": "8ee4e65a-256b-4f88-b465-93c568dd8a45",
+		"name": "TREASURER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33260877"
+	},
+	"item": [
+		{
+			"name": "AUTHENTICATION",
+			"item": [
+				{
+					"name": "register member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"members\",\r\n    \"email\" : \"members@mail\",\r\n    \"password\" : \"members\",\r\n    \"name\" : \"namae\",\r\n    \"position\" : \"2000-10-10\",\r\n    \"phone\" : \"3024190322\",\r\n    \"address\" : \"addressss\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register/member",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								"member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"admin\",\r\n    \"name\" : \"admin\",\r\n    \"phoneNumber\" : \"S30241903\",\r\n    \"email\" : \"admin@mail\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MEMBER",
+			"item": [
+				{
+					"name": "create member",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"member name\",\r\n    \"position\" : \"student\",\r\n    \"phone\" : \"1233345\",\r\n    \"address\" : \"the address\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/members/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"members",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get member by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/members/e0406c48-29f3-4f06-9409-3dc6e8a8831a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"members",
+								"e0406c48-29f3-4f06-9409-3dc6e8a8831a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all members",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update member",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"e0406c48-29f3-4f06-9409-3dc6e8a8831a\",\r\n    \"name\" : \"second member\",\r\n    \"position\" : \"student\",\r\n    \"phone\" : \"1235555\",\r\n    \"address\" : \"addressses\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/members/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"members",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete member by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/members/deactivate/e0406c48-29f3-4f06-9409-3dc6e8a8831a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"members",
+								"deactivate",
+								"e0406c48-29f3-4f06-9409-3dc6e8a8831a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PERIOD",
+			"item": [
+				{
+					"name": "create period",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"period\" : \"DAILY\",\r\n    \"countInDays\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/periods/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"periods",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get period by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/periods/98562e15-dbae-4528-935a-39b99a9bd549",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"periods",
+								"98562e15-dbae-4528-935a-39b99a9bd549"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all periods",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/periods",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"periods"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update period",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"98562e15-dbae-4528-935a-39b99a9bd549\",\r\n    \"period\" : \"WEEKLY\",\r\n    \"countInDays\" : 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/periods/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"periods",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete period by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/periods/deactivate/98562e15-dbae-4528-935a-39b99a9bd549",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"periods",
+								"deactivate",
+								"98562e15-dbae-4528-935a-39b99a9bd549"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ACCUMULATION",
+			"item": [
+				{
+					"name": "create accumulation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"first acc\",\r\n    \"goal\" : \"funding\",\r\n    \"startDate\" : \"2024-01-01\",\r\n    \"endDate\" : \"2024-04-02\",\r\n    \"periodId\" : \"98562e15-dbae-4528-935a-39b99a9bd549\",\r\n    \"targetAmount\" : 2000000,\r\n    \"payment\" : 10000,\r\n    \"personInChargeId\" : \"e0406c48-29f3-4f06-9409-3dc6e8a8831a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/accumulations/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"accumulations",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get accumulation by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/accumulations/f67cc3fb-75c5-42f6-bd45-79fe508e8e66",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"accumulations",
+								"f67cc3fb-75c5-42f6-bd45-79fe508e8e66"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all accumulations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/accumulations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"accumulations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update accumulation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"f67cc3fb-75c5-42f6-bd45-79fe508e8e66\",\r\n    \"title\" : \"updated acc\",\r\n    \"goal\" : \"funding\",\r\n    \"startDate\" : \"2024-01-01\",\r\n    \"endDate\" : \"2024-04-02\",\r\n    \"periodId\" : \"98562e15-dbae-4528-935a-39b99a9bd549\",\r\n    \"targetAmount\" : 20000000,\r\n    \"payment\" : 10000,\r\n    \"personInChargeId\" : \"e0406c48-29f3-4f06-9409-3dc6e8a8831a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/accumulations/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"accumulations",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete accumulation by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/accumulations/deactivate/f67cc3fb-75c5-42f6-bd45-79fe508e8e66",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"accumulations",
+								"deactivate",
+								"f67cc3fb-75c5-42f6-bd45-79fe508e8e66"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TRACKING",
+			"item": [
+				{
+					"name": "create tracking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accumulationId\" : \"f67cc3fb-75c5-42f6-bd45-79fe508e8e66\",\r\n    \"memberId\" : \"e0406c48-29f3-4f06-9409-3dc6e8a8831a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tracking/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tracking",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tracking by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tracking/382d4ad7-6b5b-4fdc-a6b0-470fc877c00f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tracking",
+								"382d4ad7-6b5b-4fdc-a6b0-470fc877c00f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tracking by accumulation id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tracking/by-accumulation/f67cc3fb-75c5-42f6-bd45-79fe508e8e66",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tracking",
+								"by-accumulation",
+								"f67cc3fb-75c5-42f6-bd45-79fe508e8e66"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tracking by member id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tracking/by-member/e0406c48-29f3-4f06-9409-3dc6e8a8831a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tracking",
+								"by-member",
+								"e0406c48-29f3-4f06-9409-3dc6e8a8831a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all trackings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tracking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tracking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update tracking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"382d4ad7-6b5b-4fdc-a6b0-470fc877c00f\",\r\n    \"paid\" : 7,\r\n    \"saved\" : 20000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tracking/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tracking",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete tracking by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tracking/deactivate/382d4ad7-6b5b-4fdc-a6b0-470fc877c00f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tracking",
+								"deactivate",
+								"382d4ad7-6b5b-4fdc-a6b0-470fc877c00f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PAYMENT",
+			"item": [
+				{
+					"name": "create payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trackingId\" : \"382d4ad7-6b5b-4fdc-a6b0-470fc877c00f\",\r\n    \"amount\" : 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/payments/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"payments",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get payment by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/payments/1f1d47e4-6321-4b22-b5e8-441b33330af3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"payments",
+								"1f1d47e4-6321-4b22-b5e8-441b33330af3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all payments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcHBfbmFtZSIsInN1YiI6IjkxNDA0NzJjLTY5YzYtNDVjZi1iZWU4LWQ1NGExOWEwZWIyOSIsImV4cCI6MTcxMTc2MzMxNSwiaWF0IjoxNzExNzU5NzE1LCJyb2xlIjoiY29tLnByb2plY3QudHJlYXN1cmVycHJvamVjdC5lbnRpdHkuUm9sZUAxMTc0YTMzOSJ9.BM9TKu9wbzEEf8K4uczqv1mK4CC0Ooz691PIub1V3XA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
