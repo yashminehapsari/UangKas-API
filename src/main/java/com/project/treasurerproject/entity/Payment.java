@@ -21,7 +21,7 @@ public class Payment {
     private Tracking tracking;
     @Column(nullable = false, columnDefinition = "bigint check(amount>0)")
     private Long amount;
-    @Column(columnDefinition = "int check(addition>=0")
+    @Column(columnDefinition = "int check(addition>=0)")
     private Integer addition;
     @Column(name = "payment_date")
     private LocalDate paymentDate;

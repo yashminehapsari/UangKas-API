@@ -35,23 +35,26 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public PaymentResponse create(PaymentRequest paymentRequest) {
         Tracking tracking = trackingService.usualGetById(paymentRequest.getTrackingId());
-        Long[] result = countTimes(paymentRequest.getAmount(), tracking);
-        tracking.setSaved(result[0]);
-        tracking.setPaid((int) (tracking.getPaid()+result[1]));
-        TrackingResponse trackingResponse = trackingService.updateDetail(tracking);
-        Payment payment = paymentRepo.save(Payment.builder()
-                .tracking(tracking)
-                .amount(paymentRequest.getAmount())
-                .addition(Math.toIntExact(result[1]))
-                .paymentDate(LocalDate.now())
-                .build());
-        return PaymentResponse.builder()
-                .id(payment.getId())
-                .trackingResponse(trackingResponse)
-                .amount(payment.getAmount())
-                .addition(payment.getAddition())
-                .paymentDate(payment.getPaymentDate())
-                .build();
+        if (tracking!=null) {
+            Long[] result = countTimes(paymentRequest.getAmount(), tracking);
+            tracking.setSaved(result[0]);
+            tracking.setPaid((int) (tracking.getPaid()+result[1]));
+            TrackingResponse trackingResponse = trackingService.updateDetail(tracking);
+            Payment payment = paymentRepo.save(Payment.builder()
+                    .tracking(tracking)
+                    .amount(paymentRequest.getAmount())
+                    .addition(Math.toIntExact(result[1]))
+                    .paymentDate(LocalDate.now())
+                    .build());
+            return PaymentResponse.builder()
+                    .id(payment.getId())
+                    .trackingResponse(trackingResponse)
+                    .amount(payment.getAmount())
+                    .addition(payment.getAddition())
+                    .paymentDate(payment.getPaymentDate())
+                    .build();
+        }
+        return null;
     }
 
     @Override

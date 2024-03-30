@@ -57,7 +57,11 @@ public class TrackingServiceImpl implements TrackingService {
     }
     @Override
     public TrackingResponse getById(String id) {
-        return getTrackingResponse(usualGetById(id));
+        Tracking tracking = trackingRepo.findById(id).orElse(null);
+        if (tracking!=null) {
+            return getTrackingResponse(tracking);
+        }
+        return null;
     }
 
     @Override

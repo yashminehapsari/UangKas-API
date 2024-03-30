@@ -18,11 +18,18 @@ public class PaymentController {
     @PostMapping(AppPath.CREATE)
     public ResponseEntity<?> create(@RequestBody PaymentRequest paymentRequest) {
         PaymentResponse newPayment= paymentService.create(paymentRequest);
-        return ResponseEntity.status(HttpStatus.CREATED)
+        if (newPayment!=null) {
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(CommonResponse.builder()
+                            .data(newPayment)
+                            .message("New payment successfully created")
+                            .statusCode(HttpStatus.CREATED.value())
+                            .build());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(CommonResponse.builder()
-                        .data(newPayment)
-                        .message("New payment successfully created")
-                        .statusCode(HttpStatus.CREATED.value())
+                        .message("Matched id not found")
+                        .statusCode(HttpStatus.NOT_FOUND.value())
                         .build());
     }
 
